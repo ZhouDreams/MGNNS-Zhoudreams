@@ -1,8 +1,8 @@
 
 ##CUDA_VISIBLE_DEVICES=3 python3 MVSA_Multi_GCN_Multihead_Att.py  --image-size 448 --batch-size 4 -e --text_min_count 5 --ngram 4 --window_size 4 --epochs 10 --lr 5e-5 --object_t_value 0.3 --place_t_value 0.3
 import argparse
-from models.Multi_GCN_Multihead_att_new import multi_gcn_multihead_att_model
-from utils.Multi_GCN_Co_att_dataset_new import Tumblr_Dataset
+from models.Multi_GCN_Multihead_att import multi_gcn_multihead_att_model
+from utils.Multi_GCN_Co_att_dataset import Tumblr_Dataset
 from utils.util import *
 from utils.vocab_new import get_vocab_list
 from engine.Multi_GCN_Multihead_Att_engine import MultiClassEngine,GCNMultiClassEngine

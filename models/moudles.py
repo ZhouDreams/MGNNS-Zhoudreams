@@ -1,8 +1,8 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from models.multi_head_att.submodules import MultiHeadAttention, PositionwiseFeedForward, PositionalEncoding
-from models.multi_head_att.submodules import  ScaledDotProductAttention, LayerNorm
+from models.submodules import MultiHeadAttention, PositionwiseFeedForward, PositionalEncoding
+from models.submodules import  ScaledDotProductAttention, LayerNorm
 import numpy as np
 
 

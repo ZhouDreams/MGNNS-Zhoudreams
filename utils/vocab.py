@@ -16,7 +16,7 @@ def get_vocab_list(data_root_path, vocab_root_path, text_min_count):
 
 def get_content(data_root_path):
     all_text =[]
-    text_data_path = os.path.join(data_root_path, 'all_anno_json_new', 'train_all_anno.json')
+    text_data_path = os.path.join(data_root_path, 'all_anno_json', 'train_all_anno.json')
     with open(text_data_path, 'r') as f:
         for line in f:
             json_line = json.loads(line)
@@ -25,7 +25,7 @@ def get_content(data_root_path):
     return all_text
 
 def get_vocab(vocab_root_path, text_min_count):
-    with open(os.path.join(vocab_root_path, 'vocab_new', 'vocab-' + str(text_min_count)+'.txt')) as f:
+    with open(os.path.join(vocab_root_path, 'vocab', 'vocab-' + str(text_min_count)+'.txt')) as f:
         print('------------------------geting vocab-----------------------')
         vocab = f.read()
         vocab = vocab.split('\n')
@@ -50,7 +50,7 @@ def build_vocab(vocab_root_path, train_all_text, text_min_count):
             
     if not os.path.exists(os.path.join(vocab_root_path, 'freq.csv')):
         print('-------------no freq.csv, so save it----------')
-        with open(os.path.join(vocab_root_path, 'vocab_new', 'freq.csv'), 'w') as f:
+        with open(os.path.join(vocab_root_path, 'vocab', 'freq.csv'), 'w') as f:
             writer = csv.writer(f)
             results = list(zip(freq.keys(), freq.values()))
             writer.writerows(results)
@@ -64,7 +64,7 @@ def build_vocab(vocab_root_path, train_all_text, text_min_count):
 
     results.insert(0, 'PAD')
     results.insert(1, 'UNK')
-    with open(os.path.join(vocab_root_path, 'vocab_new','vocab-' + str(text_min_count)+'.txt'), 'w') as f:
+    with open(os.path.join(vocab_root_path, 'vocab','vocab-' + str(text_min_count)+'.txt'), 'w') as f:
         f.write('\n'.join(results))
 
     return results ###vocab_list
