@@ -73,7 +73,7 @@ class Model(torch.nn.Module):
             print("-------------------node initialization by pmi--------")
         self.hidden_size_node = hidden_size_node
         print('---------------2-----------------------')
-        self.node_hidden.weight.data.copy_(torch.tensor(self.load_word2vec('glove/glove.6B.300d.txt')))
+        self.node_hidden.weight.data.copy_(torch.tensor(self.load_word2vec('data/glove/glove.6B.300d.txt')))
         # self.node_hidden.weight.data.copy_(torch.tensor(self.load_word2vec('glove/glove.twitter.27B.200d.txt')))
         print('--------------------------3------------------')
         self.node_hidden.weight.requires_grad = True

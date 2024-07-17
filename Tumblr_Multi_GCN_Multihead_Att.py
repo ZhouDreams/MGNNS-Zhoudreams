@@ -17,7 +17,7 @@ parser.add_argument('--hidden_size', type=int, default=150, help='dimension of g
 parser.add_argument('--emb_size', type=int, default=300, help='dimension of glove embedding')
 parser.add_argument('--num_layers', type=int, default=2, help='number of layers in GRU')
 parser.add_argument('-dropout', type=float, default=0.5)
-parser.add_argument('-emb_type', type=str, choices=['random', 'glove', 'glove200d', 'glove300d', 'fasttext300d'], default='glove', help='')
+parser.add_argument('-emb_type', type=str, choices=['random', 'glove', 'glove200d', 'glove300d', 'fasttext300d'], default='glove300d', help='')
 parser.add_argument('--stack_num', type=int, default=2, help='number of stack in multihead attention')
 parser.add_argument('--n_head', type=int, default=4, help='number of the head in multihead attention')
 parser.add_argument('--d_kv', type=int, default=128, help='the dim of each head in multihead attention')

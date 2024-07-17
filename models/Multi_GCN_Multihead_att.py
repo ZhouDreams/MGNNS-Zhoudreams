@@ -335,13 +335,13 @@ class Multi_GCN_Multihead_Att(nn.Module):
         self.multi_linear_2 = nn.Linear(self.bi_hidden_size, num_labels)
 
         ###object_Adj
-        object_adj, object_nums = gen_A(object_num_classes, self.object_t, object_adj_file)
+        object_adj, object_nums = gen_A(object_num_classes, self.object_t, object_adj_file, 0.2)
         print('---------------  object_adj----------------------')
         print(object_adj.shape)
         self.object_A = Parameter(torch.from_numpy(object_adj).float())
 
         ###place_Adj
-        place_adj, place_nums = gen_A(place_num_classes, self.place_t, place_adj_file)
+        place_adj, place_nums = gen_A(place_num_classes, self.place_t, place_adj_file, 0.2)
         print('---------------place_adj----------------------')
         print(place_adj.shape)
         self.place_A = Parameter(torch.from_numpy(place_adj).float())
