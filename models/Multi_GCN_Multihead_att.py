@@ -373,7 +373,7 @@ class Multi_GCN_Multihead_Att(nn.Module):
         nn.utils.rnn.pack_padded_sequence:压缩padding部分，pack之后，原来填充的 PAD（一般初始化为0）占位符被删掉了。
         输入的形状可以是(T×B×* )。T是最长序列长度，B是batch size，*代表任意维度(可以是0)。如果batch_first=True的话，那么相应的 input size 就是 (B×T×*)。
         '''
-        packed_input_text = nn.utils.rnn.pack_padded_sequence(text_embed, text_lens, batch_first=True, enforce_sorted=False)
+        packed_input_text = nn.utils.rnn.pack_padded_sequence(text_embed, text_lens.cpu(), batch_first=True, enforce_sorted=False)
         # memory_bank, enc_final_state = self.rnn(packed_input_text)
         memory_bank, (enc_final_state, c_n) = self.lstm(packed_input_text)
         # ([batch, seq_len, num_directions*hidden_size], [num_layer * num_directions, batch, hidden_size])

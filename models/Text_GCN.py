@@ -240,7 +240,7 @@ class Model(torch.nn.Module):
         # print(before_node_embedding)
 
         batch_graph.update_all(
-            message_func=dgl.function.src_mul_edge('h', 'w', 'weighted_message'),
+            message_func=dgl.function.u_mul_e('h', 'w', 'weighted_message'),
             ###h为源特征，w为目标特征域，weighted_message 为output message field.
             ###通过节点特征h与边特征w的mul运算，得weighted_message
 
